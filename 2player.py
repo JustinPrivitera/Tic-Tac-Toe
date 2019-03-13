@@ -13,6 +13,11 @@ def play():
 	board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 	# need a method to print the board and print over the previous board depending on what move is made
 
+	while(check_win(board) == -1):
+		# do stuff
+
+	# display results, start new game
+
 def check_win(board): # return 0 if O's win, 1 if X's win, and -1 if it is incomplete and 2 if it is a draw
 	sum_diag = 0
 	sum_col = 0
