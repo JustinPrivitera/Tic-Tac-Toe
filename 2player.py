@@ -4,13 +4,16 @@ import sys
 
 BOARD_LENGTH = 3
 
-def play():
-	board = [[1, 0, 1], [-1, 1, 0], [1, -1, -1]]
+def play_test():
+	board = [[1, 0, 1], [-1, 1, 0], [1, -1, -1]] # 1 = X, -1 = O, 0 = blank
 	print(str_board(board), end = '')
 	print(check_win(board))
 
+def play():
+	board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+	# need a method to print the board and print over the previous board depending on what move is made
+
 def check_win(board): # return 0 if O's win, 1 if X's win, and -1 if it is incomplete and 2 if it is a draw
-# need a case where drawing ends the game
 	sum_diag = 0
 	sum_col = 0
 	i = 0
@@ -99,4 +102,6 @@ def str_board(board):
 		i += 1
 	return s_board
 
-play()
+play_test()
+
+#play()
