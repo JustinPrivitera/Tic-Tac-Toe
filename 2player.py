@@ -13,8 +13,25 @@ def play():
 	board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 	# need a method to print the board and print over the previous board depending on what move is made
 
+	xs = True
 	while(check_win(board) == -1):
-		# do stuff
+		print(str_board(board), end = '')
+		move = int(input()) # need a way to check it is valid - 1) that it is an int between 1 and 9, and 2) that the place is not taken
+		row = 0
+		if move < 4:
+			row = 0
+		elif move < 7:
+			row = 1
+			move -= 3
+		else:
+			row = 2
+			move -= 6
+		if xs == True:
+			board[row][move - 1] = 1
+			xs = False
+		else:
+			board[row][move - 1] = -1
+			xs = True
 
 	# display results, start new game
 
@@ -61,8 +78,10 @@ def check_draw(board): # returns 1 if there is a draw and 0 if not
 	while i < BOARD_LENGTH:
 		j = 0
 		while j < BOARD_LENGTH:
-			if boad[i][j] == 0:
+			if board[i][j] == 0:
 				num_zeros += 1
+			j += 1
+		i += 1
 
 	if num_zeros == 0:
 		return 1
@@ -107,6 +126,6 @@ def str_board(board):
 		i += 1
 	return s_board
 
-play_test()
+#play_test()
 
-#play()
+play()
