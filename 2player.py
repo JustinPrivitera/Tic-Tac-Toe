@@ -15,7 +15,8 @@ def play():
 
 	xs = True
 	while(check_win(board) == -1):
-		print(str_board(board), end = '')
+		sys.stdout.write(str_board(board))
+		#print(str_board(board), end = '')
 		move = int(input()) # need a way to check it is valid - 1) that it is an int between 1 and 9, and 2) that the place is not taken
 		row = 0
 		if move < 4:
